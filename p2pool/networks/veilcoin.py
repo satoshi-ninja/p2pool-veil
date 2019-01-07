@@ -1,6 +1,6 @@
 from p2pool.bitcoin import networks
 
-PARENT=networks.nets['veil']
+PARENT=networks.nets['veilcoin']
 SHARE_PERIOD=15 # seconds
 CHAIN_LENGTH=24*60*60//10 # shares
 REAL_CHAIN_LENGTH=24*60*60//10 # shares
