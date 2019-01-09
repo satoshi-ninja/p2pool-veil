@@ -117,6 +117,7 @@ tx_id_type = pack.ComposedType([
 
 class TransactionType(pack.Type):
     _int_type = pack.IntType(32)
+    _int_type16 = pack.IntType(16)
     _varint_type = pack.VarIntType()
     _witness_type = pack.ListType(pack.VarStrType())
     _wtx_type = pack.ComposedType([
@@ -126,10 +127,9 @@ class TransactionType(pack.Type):
     ])
     _ntx_type = pack.ComposedType([
         ('tx_outs', pack.ListType(tx_out_type)),
-        ('lock_time', _int_type)
     ])
     _write_type = pack.ComposedType([
-        ('version', _int_type),
+        ('version', _int_type16),
         ('marker', pack.IntType(8)),
         ('flag', pack.IntType(8)),
         ('tx_ins', pack.ListType(tx_in_type)),
@@ -137,21 +137,21 @@ class TransactionType(pack.Type):
     ])
 
     def read(self, file):
-        version, file = self._int_type.read(file)
+        version, file = self._int_type16.read(file)
         marker, file = self._varint_type.read(file)
+        locktime, file = self._int_type.read(file)
         if marker == 0:
             next, file = self._wtx_type.read(file)
             witness = [None]*len(next['tx_ins'])
             for i in xrange(len(next['tx_ins'])):
                 witness[i], file = self._witness_type.read(file)
-            locktime, file = self._int_type.read(file)
             return dict(version=version, marker=marker, flag=next['flag'], tx_ins=next['tx_ins'], tx_outs=next['tx_outs'], witness=witness, lock_time=locktime), file
         else:
             tx_ins = [None]*marker
             for i in xrange(marker):
                 tx_ins[i], file = tx_in_type.read(file)
             next, file = self._ntx_type.read(file)
-            return dict(version=version, tx_ins=tx_ins, tx_outs=next['tx_outs'], lock_time=next['lock_time']), file
+            return dict(version=version, tx_ins=tx_ins, tx_outs=next['tx_outs'], lock_time=locktime), file
     
     def write(self, file, item):
         if is_segwit_tx(item):
@@ -181,7 +181,7 @@ block_header_type = pack.ComposedType([
     ('previous_block', pack.PossiblyNoneType(0, pack.IntType(256))),
     ('merkle_root', pack.IntType(256)),
     ('timestamp', pack.IntType(32)),
-    ('bits', FloatingIntegerType()),
+    ('bits', pack.IntType(32)),
     ('nonce', pack.IntType(32)),
 ])
 
