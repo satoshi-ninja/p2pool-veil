@@ -1,0 +1,7 @@
+nattraverso
+nattraverso/pynupnp
+p2pool
+p2pool/bitcoin
+p2pool/bitcoin/networks
+p2pool/networks
+p2pool/util
