@@ -1,7 +1,7 @@
 Requirements:
 -------------------------
 Generic:
-* Bitcoin >=0.11.1
+* Veil >= 1.0.0.6
 * Python >=2.6
 * Twisted >=10.0.0
 
@@ -24,14 +24,15 @@ Running P2Pool:
 To use P2Pool, you must be running your own local bitcoind. For standard
 configurations, using P2Pool should be as simple as:
 
-    cd lyra2re-hash-python
+    cd x16rt_hash
     git submodule init
     git submodule update
     sudo python setup.py install
+    python test.py
     cd ../
-    python run_p2pool.py --net vertcoin
+    python run_p2pool.py --net veil (--testnet) -a <your mining address here> <rpcuser> <rpcpassword>
 
-Then run your miner program, connecting to 127.0.0.1 on port 9171 with any
+Then run your miner program, connecting to 127.0.0.1 on port <port> with any
 username and password.
 
 If you are behind a NAT, you should enable TCP port forwarding on your
@@ -43,7 +44,7 @@ Run for additional options.
 
 Donations towards further development:
 -------------------------
-    1HNeqi3pJRNvXybNX4FKzZgYJsdTSqJTbk
+1HNeqi3pJRNvXybNX4FKzZgYJsdTSqJTbk
 
 Official wiki:
 -------------------------
