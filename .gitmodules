@@ -1,3 +1,4 @@
-[submodule "lyra2re-hash-python"]
-	path = lyra2re-hash-python
-	url = https://github.com/metalicjames/lyra2re-hash-python
+[submodule "x16rt_hash"]
+        path = x16rt_hash
+        url = https://github.com/random-zebra/x16rt_hash.git
+
