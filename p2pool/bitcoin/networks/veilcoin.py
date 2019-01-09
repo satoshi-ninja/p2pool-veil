@@ -17,7 +17,7 @@ SUBSIDY_FUNC=lambda height: 50*100000000 >> (height + 1)//840000
 POW_FUNC=lambda data: pack.IntType(256).unpack(__import__('x16r_hash').getPoWHash(data))
 BLOCK_PERIOD=60 # s
 SYMBOL='VEIL'
-CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'Vertcoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/Vertcoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.vertcoin'), 'vertcoin.conf')
+CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'veil') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/veil/') if platform.system() == 'Darwin' else os.path.expanduser('~/.veil'), 'veil.conf')
 BLOCK_EXPLORER_URL_PREFIX='http://explorer.vtconline.org/block/'
 ADDRESS_EXPLORER_URL_PREFIX='http://explorer.vtconline.org/address/'
 TX_EXPLORER_URL_PREFIX='http://explorer.vtconline.org/tx/'
