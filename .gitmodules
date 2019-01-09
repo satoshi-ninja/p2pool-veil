@@ -1,4 +1,4 @@
-[submodule "x16rt_hash"]
-        path = x16rt_hash
-        url = https://github.com/random-zebra/x16rt_hash.git
+#[submodule "x16rt_hash"]
+#        path = x16rt_hash
+#        url = https://github.com/random-zebra/x16rt_hash.git
 
