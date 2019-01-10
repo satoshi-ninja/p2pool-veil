@@ -1,17 +1,17 @@
-Requirements:
--------------------------
-Generic:
-* Veil >= 1.0.0.6
+# Requirements:
+
+## Generic:
+* Veil >= 1.0.0.6 --> https://github.com/Veil-Project/veil/releases
 * Python >=2.6
 * Twisted >=10.0.0
 
-Linux:
+## Linux:
 * Install the following required packages: 
 ```sh
 sudo apt-get install python-rrdtool python-pygame python-scipy python-twisted python-twisted-web python-pil python-setuptools`
 ```
 
-Windows:
+## Windows:
 * Install Python 2.7: http://www.python.org/getit/
 * Install Twisted: http://twistedmatrix.com/trac/wiki/Downloads
 * Install Zope.Interface: http://pypi.python.org/pypi/zope.interface/3.8.0
@@ -19,11 +19,9 @@ Windows:
 * Install python win32 api wmi wrapper: https://pypi.python.org/pypi/WMI/#downloads
 * Unzip the files into C:\Python27\Lib\site-packages
 
-Running P2Pool:
--------------------------
-To use P2Pool, you must be running your own local bitcoind. For standard
-configurations, using P2Pool should be as simple as:
-
+# Running P2Pool:
+To use P2Pool, you must be running your own local veild. For standard configurations, using P2Pool should be as simple as:
+```sh
     cd x16rt_hash
     git submodule init
     git submodule update
@@ -31,86 +29,24 @@ configurations, using P2Pool should be as simple as:
     python test.py
     cd ../
     python run_p2pool.py --net veil (--testnet) -a <your mining address here> <rpcuser> <rpcpassword>
-
-Then run your miner program, connecting to 127.0.0.1 on port <port> with any
+```
+Then run your miner program, connecting to 127.0.0.1 on port 58817 (mainnet) or port 58815 (testnet) with any
 username and password.
 
-If you are behind a NAT, you should enable TCP port forwarding on your
-router. Forward port 9346 to the host running P2Pool.
+If you are behind a NAT, you should enable TCP port forwarding on your router. Forward port 58816 (mainnet) or 58814 (testnet) to the host running P2Pool.
 
 Run for additional options.
-
+```
     python run_p2pool.py --help
+```
 
-Donations towards further development:
--------------------------
-1HNeqi3pJRNvXybNX4FKzZgYJsdTSqJTbk
-
-Official wiki:
--------------------------
+# Official P2Pool wiki:
 https://en.bitcoin.it/wiki/P2Pool
 
-Alternate web frontend:
--------------------------
+# Alternate web frontend:
 * https://github.com/hardcpp/P2PoolExtendedFrontEnd
 
-Notes for Litecoin:
-=========================
-Requirements:
--------------------------
-In order to run P2Pool with the Litecoin network, you would need to build and install the
-ltc_scrypt module that includes the scrypt proof of work code that Litecoin uses for hashes.
-
-Linux:
-
-    cd litecoin_scrypt
-    sudo python setup.py install
-
-Windows (mingw):
-* Install MinGW: http://www.mingw.org/wiki/Getting_Started
-* Install Python 2.7: http://www.python.org/getit/
-
-In bash type this:
-
-    cd litecoin_scrypt
-    C:\Python27\python.exe setup.py build --compile=mingw32 install
-
-Windows (Microsoft Visual C++)
-* Open visual studio console
-
-In bash type this:
-
-    SET VS90COMNTOOLS=%VS110COMNTOOLS%	           # For visual c++ 2012
-    SET VS90COMNTOOLS=%VS100COMNTOOLS%             # For visual c++ 2010
-    cd litecoin_scrypt
-    C:\Python27\python.exe setup.py build --compile=mingw32 install
-	
-If you run into an error with unrecognized command line option '-mno-cygwin', see this:
-http://stackoverflow.com/questions/6034390/compiling-with-cython-and-mingw-produces-gcc-error-unrecognized-command-line-o
-
-Running P2Pool:
--------------------------
-Run P2Pool with the "--net litecoin" option.
-Run your miner program, connecting to 127.0.0.1 on port 9327.
-Forward port 9338 to the host running P2Pool.
-
-Litecoin's use of ports 9333 and 9332 conflicts with P2Pool running on
-the Bitcoin network. To avoid problems, add these lines to litecoin.conf
-and restart litecoind:
-
-    rpcport=10332
-    port=10333
-
-Sponsors:
--------------------------
-
-Thanks to:
-* The Bitcoin Foundation for its generous support of P2Pool
-* The Litecoin Project for its generous donations to P2Pool
- 
-License:
--------------------------
-
+# License:
 [Available here](COPYING)
 
 
