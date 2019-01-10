@@ -41,12 +41,12 @@ Run for additional options.
 ```
 
 # Official P2Pool wiki:
-https://en.bitcoin.it/wiki/P2Pool
+* https://en.bitcoin.it/wiki/P2Pool
 
 # Alternate web frontend:
 * https://github.com/hardcpp/P2PoolExtendedFrontEnd
 
 # License:
-[Available here](COPYING)
+* [Available here](COPYING)
 
 
